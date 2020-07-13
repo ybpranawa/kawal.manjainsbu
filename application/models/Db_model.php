@@ -2100,5 +2100,57 @@ class Db_model extends CI_Model{
         return $query->result();
     }
 
+    public function vis_ps($sto, $teknisi)
+    {
+        $today = date('Y-m');
+        $query=$this->db->query("SELECT
+            count( k.datakpro_myir ) as jum,
+            SUBSTRING_INDEX( k.datakpro_tanggalinput, ' ', 1 ) AS tanngal 
+        FROM
+            kawal_datakpro k
+            LEFT JOIN kawal_datateknis t ON k.datakpro_id = t.datateknis_id
+            LEFT JOIN kawal_teknisi tek ON tek.teknisi_id = t.datateknis_personid1
+            LEFT JOIN kawal_statusorder s ON s.statusorder_id = t.datateknis_tindaklanjut
+            LEFT JOIN kawal_sto sto ON sto.sto_id = k.datakpro_sto 
+        WHERE
+            k.datakpro_sto = '".$sto."'
+            AND k.datakpro_tanggalinput LIKE '".$today."%'
+            AND ( t.datateknis_tindaklanjut = 'STS0007' OR t.datateknis_tindaklanjut = 'STS00023' OR t.datateknis_tindaklanjut = 'STS00001' ) 
+            AND ( t.datateknis_personid1 = '".$teknisi."' OR t.datateknis_personid2 = '".$teknisi."' )
+            GROUP BY
+            SUBSTRING_INDEX( k.datakpro_tanggalinput, ' ', 1 )");
+        return $query->result();
+    }
+
+    public function select_teknisi($sto)
+    {
+
+        $query=$this->db->query("SELECT teknisi_id, teknisi_name from kawal_teknisi WHERE teknisi_sto = '".$sto."' 
+        order by teknisi_name asc");
+        return $query->result();
+    }
+
+    public function cuba($sto)
+    {
+        $today = date('Y-m');
+        $query=$this->db->query("SELECT
+                count( k.datakpro_myir ) AS count_myir,
+                SUBSTRING_INDEX( k.datakpro_tanggalinput, ' ', 1 ) AS tanggal,
+                tek.teknisi_name
+            FROM
+                kawal_datakpro k
+                LEFT JOIN kawal_datateknis t ON k.datakpro_id = t.datateknis_id
+                LEFT JOIN kawal_teknisi tek ON tek.teknisi_id = t.datateknis_personid1
+                LEFT JOIN kawal_statusorder s ON s.statusorder_id = t.datateknis_tindaklanjut
+                LEFT JOIN kawal_sto sto ON sto.sto_id = k.datakpro_sto 
+            WHERE
+                k.datakpro_sto = '".$sto."'
+                AND k.datakpro_tanggalinput LIKE '".$today."%'
+                AND ( t.datateknis_tindaklanjut = 'STS0007' OR t.datateknis_tindaklanjut = 'STS00023' OR t.datateknis_tindaklanjut = 'STS00001' )
+                GROUP BY
+            SUBSTRING_INDEX( k.datakpro_tanggalinput, ' ', 1 ), tek.teknisi_name
+            ORDER BY tek.teknisi_name ASC, SUBSTRING_INDEX( k.datakpro_tanggalinput, ' ', 1 ) asc");
+        return $query->result();
+    }
     
 }

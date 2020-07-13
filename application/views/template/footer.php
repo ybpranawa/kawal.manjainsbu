@@ -54,12 +54,12 @@
     <script src="<?php echo base_url('dist/js/pages/chart/chart-page-init.js');?>"></script>
     
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+    <script src="<?php echo base_url('assets/libs/download/Chart.js');?>"></script>
 
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/fixedcolumns/3.3.0/js/dataTables.fixedColumns.min.js"></script>
+    <script src="<?php echo base_url('assets/libs/download/jquery.dataTables.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/libs/download/dataTables.bootstrap4.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/libs/download/dataTables.fixedColumns.min.js');?>"></script>
      
     
     <script>

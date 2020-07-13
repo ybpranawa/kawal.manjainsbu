@@ -355,7 +355,7 @@
                         </div>
                     </div>
                 </div>
-                <!--div class="card">
+                <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title m-b-0">Rekap WO Teknisi</h5>
                             </div>
@@ -371,7 +371,7 @@
                                   <tbody>
                                     
                                     <?php
-                                        /*
+                                        
                                         $i = 1;
                                         $ubis = '';
                                         $jum = count($ubs);
@@ -388,12 +388,12 @@
                                             </tr>";
                                             $i++;
                                         }
-                                    */?>
+                                    ?>
                                   </tbody>
                             </table>
                         </div>
                 
-            </div-->
+            </div>
             
             <?php $this->load->view('template/watermark'); ?>
             

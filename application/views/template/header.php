@@ -21,14 +21,14 @@
     <!-- <link href="<?php echo base_url('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css');?>" rel="stylesheet"> -->
     
     <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"/> -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedcolumns/3.3.0/css/fixedColumns.bootstrap4.min.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/libs/download/dataTables.bootstrap4.min.css');?>"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/libs/download/fixedColumns.bootstrap4.min.css');?>"/>
 
 
     <link href="<?php echo base_url('assets/libs/toastr/build/toastr.min.css');?>" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css');?>">
-    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <script src="<?php echo base_url('assets/libs/download/gijgo.min.js');?>" type="text/javascript"></script>
+    <link href="<?php echo base_url('assets/libs/download/gijgo.min.css');?>" rel="stylesheet" type="text/css" />
     
     <!-- <link href="<?php echo base_url('assets/libs/flot/css/float-chart.css');?>" rel="stylesheet"> -->
 

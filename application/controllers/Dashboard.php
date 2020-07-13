@@ -130,7 +130,27 @@ class Dashboard extends CI_Controller {
             redirect('Board/login');
         }
 	}
-	
+	public function cek()
+	{
+		$this->load->model('Db_model');
+        //$user=$this->session->userdata('username');
+        $sto='STO00002';
+        
+		$temp1['teknisi']=$this->Db_model->select_teknisi($sto);
+		$cub = array();
+		$tek = array();
+		foreach($temp1['teknisi'] as $tm)
+		{
+			
+			array_push($cub,$this->Db_model->vis_ps($sto, $tm->teknisi_id));
+			array_push($tek,$tm->teknisi_name);
+			
+		}
+		$temp['count'] = $cub;
+		$temp['tek'] = $tek;
+		$this->load->view('cek_ajah',$temp);
+	}
+
 	public function logout(){
 		$this->session->unset_userdata(array(
 			'username',
