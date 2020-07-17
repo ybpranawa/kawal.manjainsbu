@@ -3,7 +3,7 @@
 
 <head>
     <?php $this->load->view('template/header');?>
-    
+
 </head>
 
 <body>
@@ -355,43 +355,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title m-b-0">Rekap WO Teknisi</h5>
-                            </div>
-                            <table class="table">
-                                  <thead>
-                                    <tr>
-                                      <th bgcolor = "#966C63" scope="col">#</th>
-                                      <th bgcolor = "#76D7C4" scope="col">UBIS</th>
-                                      <th bgcolor = "#76D7C4" scope="col">Order</th>
-                                      <th bgcolor = "#76D7C4" scope="col">Belum Update</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    
-                                    <?php
-                                        
-                                        $i = 1;
-                                        $ubis = '';
-                                        $jum = count($ubs);
-                                        
-                                        for($k=0;$k<$jum;$k++)
-                                        {
-                                            $ubis = $ubs[$k];
-                                            
-                                            echo"<tr>
-                                            <th scope='row'>$i</th>
-                                            <td>$ubis</td>
-                                            <td>".$wo_total[$k]."</td>
-                                            <td>".$wo_blm[$k]."</td>
-                                            </tr>";
-                                            $i++;
-                                        }
-                                    ?>
-                                  </tbody>
-                            </table>
-                        </div>
+                
                 
             </div>
             

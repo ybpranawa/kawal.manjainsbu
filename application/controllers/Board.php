@@ -334,6 +334,28 @@ class Board extends CI_Controller {
         }
 	}
 
+	public function visualboard()
+	{
+		
+		$this->load->model('Db_model');		
+        $user=$this->session->userdata('username');
+        $sto=$this->session->userdata('sto');
+		$temp1['teknisi']=$this->Db_model->select_teknisi($sto);
+			$cub = array();
+			$tek = array();
+			foreach($temp1['teknisi'] as $tm)
+			{
+				
+				array_push($cub,$this->Db_model->vis_ps($sto, $tm->teknisi_id));
+				array_push($tek,$tm->teknisi_name);
+				
+			}
+			$data['count'] = $cub;
+			$data['tek'] = $tek;
+
+            $this->load->view('visualboard',$data);
+	}
+
 	public function viewdata(){
 		$user=$this->session->userdata('username');
 		$role=$this->session->userdata('role');

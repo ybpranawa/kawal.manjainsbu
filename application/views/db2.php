@@ -3,7 +3,6 @@
 
 <head>
     <?php $this->load->view('template/header');?>
-    
 </head>
 
 <body>
